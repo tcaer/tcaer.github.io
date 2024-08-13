@@ -1,49 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionContent from '../components/SectionContent.astro';
 ---
 
 <Layout title="Tino Caer">
-	<main class="container mx-auto py-8 px-5 lg:px-0">
-		<h1 class="mt-5 mb-2.5 font-bold text-4xl text-gray-700">Tino Caer</h1>
-		<section>
-			<h2 class="mt-5 mb-1.5 font-bold text-3xl text-gray-700">About</h2>
-			<p class="text-base text-gray-700">
-        I am currently a software engineer at Sigma Computing, a data analytics and application platform that 
-        enables anyone to explore data at cloud scale and speed through a familiar spreadsheet-like 
-        interface. I am currently working on the actions team, building a platform to enable users 
-        to implement rich interactivity and workflows within their Sigma workbooks.
-        <br><br>
-        Previously, I worked 
-        on the data governance team, building solutions for authentication, audit logging, and OAuth 
-        integrations with cloud data warehouse providers.
-			</p>
-		</section>
-		<section>
-			<h2 class="mt-5 mb-1.5 font-bold text-3xl text-gray-700">Experience</h2>
-			<div class="grid lg:grid-cols-2 auto-rows-auto gap-4">
-				<div>
-					<h3 class="font-bold text-2xl text-gray-600">Sigma Computing</h3>
-					<em class="text-sm text-gray-500">Software Engineer — August, 2023 - Current</em>
-				</div>
-				<div>
-					<h3 class="font-bold text-2xl text-gray-600">Sutter Hill Ventures</h3>
-          <em class="text-sm text-gray-500">Codepoint Fellow in Residence — August, 2023 - August, 2024</em>
-				</div>
-				<div>
-					<h3 class="font-bold text-2xl text-gray-600">Microsoft</h3>
-					<em class="text-sm text-gray-500">Software Engineer Intern — Summer, 2022</em>
-				</div>
-				<div>
-					<h3 class="font-bold text-2xl text-gray-600">Amazon</h3>
-					<em class="text-sm text-gray-500">Software Development Engineer Intern — Summer, 2021</em>
-				</div>
-			</div>
-		</section>
-		<section>
-			<h2 class="mt-5 mb-1.5 font-bold text-3xl text-gray-700">Contact</h2>
-			<p class="text-base text-gray-700">
-				Feel free to reach out to me via email: <a class="underline" href="mail:tino.caer@me.com">tino.caer@me.com</a>. I am also on <a class="underline" href="https://www.linkedin.com/in/tinocaer/">LinkedIn</a> and <a class="underline" href="https://github.com/tcaer">Github</a>.
-			</p>
-		</section>
-	</main>
+  <SectionContent title="About">
+    I am currently a software engineer at Sigma Computing, a data analytics and application platform that 
+    enables anyone to explore data at cloud scale and speed through a familiar spreadsheet-like 
+    interface. I am currently working on the actions team, building a platform to enable users 
+    to implement rich interactivity and workflows within their Sigma workbooks.
+    <br><br>
+    Previously, I worked 
+    on the data governance team, building solutions for authentication, audit logging, and OAuth 
+    integrations with cloud data warehouse providers.
+  </SectionContent>
+  <SectionContent title="Experience">
+    <div class="grid lg:grid-cols-2 auto-rows-auto gap-4">
+      <div>
+        <h3 class="font-bold text-2xl text-gray-600">Sigma Computing</h3>
+        <em class="text-sm text-gray-500">Software Engineer — August, 2023 - Current</em>
+      </div>
+      <div>
+        <h3 class="font-bold text-2xl text-gray-600">Sutter Hill Ventures</h3>
+        <em class="text-sm text-gray-500">Codepoint Fellow in Residence — August, 2023 - August, 2024</em>
+      </div>
+      <div>
+        <h3 class="font-bold text-2xl text-gray-600">Microsoft</h3>
+        <em class="text-sm text-gray-500">Software Engineer Intern — Summer, 2022</em>
+      </div>
+      <div>
+        <h3 class="font-bold text-2xl text-gray-600">Amazon</h3>
+        <em class="text-sm text-gray-500">Software Development Engineer Intern — Summer, 2021</em>
+      </div>
+    </div>
+  </SectionContent>
+  <SectionContent title="Contact">
+      Feel free to reach out to me via email: <a class="underline" href="mail:tino.caer@me.com">tino.caer@me.com</a>. I am also on <a class="underline" href="https://www.linkedin.com/in/tinocaer/">LinkedIn</a> and <a class="underline" href="https://github.com/tcaer">Github</a>.
+    </p>
+  </SectionContent>
 </Layout>
