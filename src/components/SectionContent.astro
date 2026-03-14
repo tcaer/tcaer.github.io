@@ -5,9 +5,9 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<section>
+<section class="mt-10">
   <h2 class="mt-5 mb-1.5 font-bold text-3xl text-gray-700">{title}</h2>
-  <p class="text-base text-gray-700">
+  <div class="section-body text-base text-gray-700">
     <slot />
-  </p>
+  </div>
 </section>

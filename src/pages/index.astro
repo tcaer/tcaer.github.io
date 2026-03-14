@@ -1,41 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionContent from '../components/SectionContent.astro';
+
+const roles = [
+  {
+    company: 'Sigma Computing',
+    title: 'Senior Software Engineer',
+    period: 'Aug 2023 - Present',
+  },
+  {
+    company: 'Sutter Hill Ventures',
+    title: 'Codepoint Fellow in Residence',
+    period: 'Aug 2023 - Aug 2024',
+  },
+  {
+    company: 'Microsoft',
+    title: 'Software Engineer Intern',
+    period: 'Summer 2022',
+  },
+  {
+    company: 'Amazon',
+    title: 'Software Development Engineer Intern',
+    period: 'Summer 2021',
+  },
+];
+
+const links = [
+  { label: 'Email', href: 'mailto:tino.caer@me.com', value: 'tino.caer@me.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tinocaer/', value: 'tinocaer' },
+  { label: 'GitHub', href: 'https://github.com/tcaer', value: 'tcaer' },
+];
 ---
 
-<Layout title="Tino Caer">
-  <SectionContent title="About">
-    I am currently a software engineer at Sigma Computing, a data analytics and application platform that 
-    enables anyone to explore data at cloud scale and speed through a familiar spreadsheet-like 
-    interface. I am currently working on the actions team, building a platform to enable users 
-    to implement rich interactivity and workflows within their Sigma workbooks.
-    <br><br>
-    Previously, I worked 
-    on the data governance team, building solutions for authentication, audit logging, and OAuth 
-    integrations with cloud data warehouse providers.
-  </SectionContent>
-  <SectionContent title="Experience">
-    <div class="grid lg:grid-cols-2 auto-rows-auto gap-4">
-      <div>
-        <h3 class="font-bold text-2xl text-gray-600">Sigma Computing</h3>
-        <em class="text-sm text-gray-500">Software Engineer — August, 2023 - Current</em>
-      </div>
-      <div>
-        <h3 class="font-bold text-2xl text-gray-600">Sutter Hill Ventures</h3>
-        <em class="text-sm text-gray-500">Codepoint Fellow in Residence — August, 2023 - August, 2024</em>
-      </div>
-      <div>
-        <h3 class="font-bold text-2xl text-gray-600">Microsoft</h3>
-        <em class="text-sm text-gray-500">Software Engineer Intern — Summer, 2022</em>
-      </div>
-      <div>
-        <h3 class="font-bold text-2xl text-gray-600">Amazon</h3>
-        <em class="text-sm text-gray-500">Software Development Engineer Intern — Summer, 2021</em>
-      </div>
+<Layout
+  title="Tino Caer"
+  description="Tino Caer is a software engineer at Sigma Computing building interactive workflow systems and data platform features."
+>
+  <header class="mt-5 pb-2">
+    <h1 class="mb-3 font-bold text-4xl text-gray-700">Tino Caer</h1>
+    <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-600">
+      {
+        links.map((link) => (
+          <a class="underline underline-offset-2" href={link.href}>
+            {link.label}: {link.value}
+          </a>
+        ))
+      }
     </div>
-  </SectionContent>
-  <SectionContent title="Contact">
-      Feel free to reach out to me via email: <a class="underline" href="mail:tino.caer@me.com">tino.caer@me.com</a>. I am also on <a class="underline" href="https://www.linkedin.com/in/tinocaer/">LinkedIn</a> and <a class="underline" href="https://github.com/tcaer">Github</a>.
+  </header>
+
+  <SectionContent title="About">
+    <p>
+      I&apos;m a Senior Software Engineer at Sigma Computing, where I build AI and workflow systems
+      for Sigma workbooks. My recent work includes AI Builder, Sigma&apos;s AI copilot for
+      workbooks, along with the core agent harness, evaluation infrastructure, and Actions.
     </p>
+  </SectionContent>
+
+  <SectionContent title="Experience">
+    <div class="space-y-5">
+      {
+        roles.map((role) => (
+          <article>
+            <div class="flex flex-col gap-1 lg:flex-row lg:items-baseline lg:justify-between">
+              <div>
+                <h3 class="font-bold text-2xl text-gray-600">{role.company}</h3>
+                <p class="text-base text-gray-700 italic">{role.title}</p>
+              </div>
+              <p class="text-sm text-gray-500">{role.period}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </SectionContent>
 </Layout>

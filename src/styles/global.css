@@ -18,6 +18,8 @@
   --color-gray-500: #666;
   --color-gray-600: #555;
   --color-gray-700: #333;
+
+  --color-paper: #fbf7f0;
 }
 
 @utility auto-cols-fr {
@@ -29,7 +31,17 @@
 }
 
 @layer components {
+  body {
+    background-color: var(--color-paper);
+    min-height: 100%;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  }
+
   .prose {
     max-width: 100ch;
+  }
+
+  .section-body > * + * {
+    margin-top: 1rem;
   }
 }
