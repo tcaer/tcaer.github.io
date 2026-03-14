@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --breakpoint-lg: 940px;
+  --breakpoint-xl: 940px;
+  --breakpoint-2xl: 940px;
+
+  --text-base: 16px;
+  --text-base--line-height: 20px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 30px;
+  --text-3xl: 32px;
+  --text-3xl--line-height: 36px;
+  --text-4xl: 38px;
+  --text-4xl--line-height: 44px;
+
+  --color-gray-500: #666;
+  --color-gray-600: #555;
+  --color-gray-700: #333;
+}
+
+@utility auto-cols-fr {
+  grid-auto-columns: 1fr 1fr;
+}
+
+@utility auto-cols-fr-sm {
+  grid-auto-columns: 0 1fr;
+}
+
+@layer components {
+  .prose {
+    max-width: 100ch;
+  }
+}
