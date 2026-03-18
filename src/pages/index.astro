@@ -36,13 +36,16 @@ const links = [
   title="Tino Caer"
   description="Tino Caer is a software engineer at Sigma Computing building interactive workflow systems and data platform features."
 >
-  <header class="mt-5 pb-2">
-    <h1 class="mb-3 font-bold text-4xl text-gray-700">Tino Caer</h1>
-    <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-600">
+  <header class="content-column pt-10 pb-0 sm:pt-16">
+    <h1 class="max-w-[12ch] text-5xl font-semibold tracking-[-0.04em] text-gray-800 sm:text-6xl">
+      Tino Caer
+    </h1>
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
       {
         links.map((link) => (
-          <a class="underline underline-offset-2" href={link.href}>
-            {link.label}: {link.value}
+          <a class="transition-colors hover:text-gray-800" href={link.href}>
+            <span class="mr-2 text-gray-500">{link.label}</span>
+            <span class="text-gray-700">{link.value}</span>
           </a>
         ))
       }
@@ -62,12 +65,14 @@ const links = [
       {
         roles.map((role) => (
           <article>
-            <div class="flex flex-col gap-1 lg:flex-row lg:items-baseline lg:justify-between">
-              <div>
-                <h3 class="font-bold text-2xl text-gray-600">{role.company}</h3>
-                <p class="text-base text-gray-700 italic">{role.title}</p>
+            <div class="grid gap-2 sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-baseline sm:gap-6">
+              <div class="min-w-0">
+                <h3 class="text-2xl font-semibold tracking-[-0.025em] text-gray-800">
+                  {role.company}
+                </h3>
+                <p class="font-serif mt-1 text-[1.05rem] italic text-gray-600">{role.title}</p>
               </div>
-              <p class="text-sm text-gray-500">{role.period}</p>
+              <p class="text-sm text-gray-500 sm:justify-self-end">{role.period}</p>
             </div>
           </article>
         ))
