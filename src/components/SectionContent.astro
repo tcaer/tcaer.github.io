@@ -1,15 +1,20 @@
 ---
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
-<section class="mt-10">
-  <div class="content-column pt-4">
-    <h2 class="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-gray-500">{title}</h2>
+
+<section class="mt-20 max-md:mt-14">
+  <div class="mx-auto grid w-full max-w-content grid-cols-1 gap-[0.35rem]">
+    <h2 class="mb-3 max-w-[768px] font-body text-[26px] leading-[1.35] font-semibold tracking-normal text-text max-md:mb-2 max-md:text-[24px]">
+      {title}
+    </h2>
+    {description && <p class="font-body text-[14px] leading-[1.45] text-text-muted">{description}</p>}
   </div>
-  <div class="section-body content-column font-serif text-[1.1rem] leading-8 text-gray-800">
+  <div class="mx-auto w-full max-w-content text-text">
     <slot />
   </div>
 </section>

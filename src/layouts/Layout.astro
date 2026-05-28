@@ -1,5 +1,6 @@
 --- 
 import { ClientRouter } from 'astro:transitions';
+import { site } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 const {
 	title,
-	description = 'Works on Codex at OpenAI, specifically on the Codex Cloud team, developing remote agents.',
+	description = site.description,
 } = Astro.props;
 ---
 
@@ -17,7 +18,7 @@ const {
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description}>
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<title>{title}</title>
@@ -33,7 +34,7 @@ const {
     <ClientRouter />
 	</head>
 	<body>
-    <main class="page-shell">
+    <main class="mx-auto min-h-svh w-full max-w-content px-gutter pt-16 pb-section">
       <slot />
     </main>
 	</body>

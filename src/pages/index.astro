@@ -1,76 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 import SectionContent from '../components/SectionContent.astro';
-
-const roles = [
-  {
-    company: 'OpenAI',
-    title: 'Member of Technical Staff',
-    period: '2026 — Present',
-  },
-  {
-    company: 'Sigma Computing',
-    title: 'Senior Software Engineer',
-    period: 'Aug 2023 — 2026',
-  },
-  {
-    company: 'Sutter Hill Ventures',
-    title: 'Codepoint Fellow in Residence',
-    period: 'Aug 2023 — Aug 2024',
-  },
-  {
-    company: 'Microsoft',
-    title: 'Software Engineer Intern',
-    period: 'Summer 2022',
-  },
-  {
-    company: 'Amazon',
-    title: 'Software Development Engineer Intern',
-    period: 'Summer 2021',
-  },
-];
-
-const links = [
-  { label: 'Email', href: 'mailto:tino.caer@me.com', value: 'tino.caer@me.com' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tinocaer/', value: 'tinocaer' },
-  { label: 'GitHub', href: 'https://github.com/tcaer', value: 'tcaer' },
-];
+import { contactLinks, roles, site } from '../config/site';
 ---
 
 <Layout
-  title="Tino Caer"
-  description="Tino Caer works on Codex at OpenAI, specifically on the Codex Cloud team, developing remote agents."
+  title={site.title}
+  description={site.description}
 >
-  <header class="content-column pt-10 pb-0 sm:pt-16">
-    <h1 class="max-w-[12ch] text-5xl font-semibold tracking-[-0.04em] text-gray-800 sm:text-6xl">
-      Tino Caer
-    </h1>
-    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
-      {
-        links.map((link) => (
-          <a class="transition-colors hover:text-gray-800" href={link.href}>
-            <span class="mr-2 text-gray-500">{link.label}</span>
-            <span class="text-gray-700">{link.value}</span>
-          </a>
-        ))
-      }
-    </div>
-  </header>
+  <PageHeader title={site.name} links={contactLinks} />
 
   <SectionContent title="Experience">
-    <div class="space-y-5">
+    <div class="grid gap-0">
       {
         roles.map((role) => (
-          <article>
-            <div class="grid gap-2 sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-baseline sm:gap-6">
-              <div class="min-w-0">
-                <h3 class="text-2xl font-semibold tracking-[-0.025em] text-gray-800">
-                  {role.company}
-                </h3>
-                <p class="font-serif mt-1 text-[1.05rem] italic text-gray-600">{role.title}</p>
-              </div>
-              <p class="text-sm text-gray-500 sm:justify-self-end">{role.period}</p>
+          <article class="mb-7 grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-gutter last:mb-0 max-md:mb-6 max-md:grid-cols-1 max-md:gap-[0.4rem]">
+            <div>
+              <h3 class="mb-1 font-body text-[21px] leading-[1.4] font-semibold tracking-normal text-text max-md:text-[20px]">
+                {role.company}
+              </h3>
+              <time class="hidden font-body text-[16px] leading-[1.6] font-normal text-text-soft max-md:block">
+                {role.period}
+              </time>
+              <p class="font-prose text-[18px] leading-[1.7] text-text-muted">{role.title}</p>
             </div>
+            <time class="whitespace-nowrap font-body text-[16px] leading-[1.6] font-normal text-text-soft max-md:hidden">
+              {role.period}
+            </time>
           </article>
         ))
       }
