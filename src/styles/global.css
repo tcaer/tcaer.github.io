@@ -59,8 +59,4 @@
     text-decoration: none;
   }
 
-  ::selection {
-    background: color-mix(in srgb, var(--color-purple) 12%, transparent);
-    color: inherit;
-  }
 }

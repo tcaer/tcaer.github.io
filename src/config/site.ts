@@ -16,12 +16,12 @@ export const roles = [
   {
     company: 'OpenAI',
     title: 'Member of Technical Staff',
-    period: '2026 — Present',
+    period: 'Apr 2026 — Present',
   },
   {
     company: 'Sigma Computing',
     title: 'Senior Software Engineer',
-    period: 'Aug 2023 — 2026',
+    period: 'Aug 2023 — Apr 2026',
   },
   {
     company: 'Sutter Hill Ventures',
