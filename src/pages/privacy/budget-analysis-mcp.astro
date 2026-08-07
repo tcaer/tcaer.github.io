@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Budget Analysis MCP Privacy Policy"
+  description="Privacy policy for the private Budget Analysis MCP integration."
+>
+  <article class="prose prose-lg prose-neutral max-w-none prose-headings:font-body prose-headings:tracking-normal prose-a:text-text prose-a:underline prose-a:underline-offset-4 prose-strong:text-text">
+    <h1>Budget Analysis MCP Privacy Policy</h1>
+
+    <p><strong>Last Updated: 2026-08-07</strong></p>
+
+    <p>
+      Budget Analysis MCP (the <strong>Service</strong>) is a private, single-user integration that
+      provides read-only access to one connected YNAB plan through a Model Context Protocol (MCP)
+      client selected by the user. This policy explains what the Service accesses, how that data is
+      used and shared, what is stored, and how it can be deleted.
+    </p>
+
+    <h2>Data the Service processes</h2>
+
+    <p>The Service may process these categories of data:</p>
+
+    <ul>
+      <li>
+        <strong>Identity and security data:</strong> the email address and signed access assertion
+        supplied by Cloudflare Access, authentication cookies or bearer tokens handled by
+        Cloudflare, and request metadata needed to authenticate and protect the Service.
+      </li>
+      <li>
+        <strong>YNAB financial data:</strong> account identifiers, names, types, states, balances,
+        budget months, category groups, categories, assigned amounts, activity, available amounts,
+        targets, payees, transaction dates, amounts, memos, clearing and approval states, flags,
+        splits, transfers, and scheduled transaction definitions.
+      </li>
+      <li>
+        <strong>OAuth credential data:</strong> YNAB access and refresh tokens, token expiration and
+        scope, and temporary authorization state and PKCE verifier values.
+      </li>
+      <li>
+        <strong>Tool-request data:</strong> the read tool selected by the user and its parameters,
+        such as a date range or exact account, category, payee, or transaction identifier.
+      </li>
+    </ul>
+
+    <p>
+      The Service does not request or store credentials for bank or other financial-institution
+      accounts. It does not request a YNAB password. It requests only YNAB's <code>read-only</code>
+      OAuth scope.
+    </p>
+
+    <h2>How data is used</h2>
+
+    <p>Data is used only to:</p>
+
+    <ol>
+      <li>authenticate the owner and reject every other identity;</li>
+      <li>obtain and refresh read-only authorization from YNAB;</li>
+      <li>make the specific YNAB API read requested through an MCP tool;</li>
+      <li>validate, minimize, and format the response for budget analysis; and</li>
+      <li>return that result to the MCP client the user deliberately connected.</li>
+    </ol>
+
+    <p>
+      The Service does not use YNAB data for advertising, profiling unrelated to the requested
+      budget analysis, credit decisions, or training a model operated by the Service.
+    </p>
+
+    <h2>On-demand disclosure to the selected AI client</h2>
+
+    <p>
+      When the user asks a connected AI client to call a tool, the Service returns the requested
+      financial data to that client. The selected client and its provider therefore receive and may
+      retain the tool result under their own terms, privacy policy, account settings, and retention
+      controls.
+    </p>
+
+    <p>
+      This includes OpenAI when the user connects the Service to Codex or ChatGPT. The Service sends
+      data to an AI provider only in response to a tool call made through the client the user chose.
+      OAuth tokens, Cloudflare assertions, cookies, and other authentication credentials are never
+      included in tool results.
+    </p>
+
+    <p>
+      The user should request only the data needed for the analysis and review the selected AI
+      provider's data controls before connecting the Service.
+    </p>
+
+    <h2>Service providers and other disclosures</h2>
+
+    <ul>
+      <li><strong>YNAB</strong> receives OAuth and API requests and returns the requested plan data.</li>
+      <li>
+        <strong>Cloudflare</strong> provides DNS, TLS, Access authentication, Workers execution,
+        security controls, and encrypted Durable Object storage. Cloudflare may process identity,
+        security, and request metadata under the operator's Cloudflare configuration and
+        Cloudflare's applicable terms.
+      </li>
+      <li>
+        <strong>The user-selected MCP or AI client provider</strong> receives tool results only as
+        described above.
+      </li>
+    </ul>
+
+    <p>
+      The Service does not sell or rent personal data, and it does not sell, license, aggregate, or
+      analyze YNAB data for third parties. It does not share YNAB data with another user.
+    </p>
+
+    <h2>Storage, caching, and security</h2>
+
+    <p>
+      YNAB API responses and financial records are processed transiently for the current tool call.
+      The Service does not persist or cache API responses, tool arguments, tool results, account
+      data, budget data, or transaction data in a database, object store, or analytics system.
+    </p>
+
+    <p>
+      The Service persists only the OAuth credential and authorization state needed to maintain the
+      YNAB connection. Those values are stored in a Cloudflare Durable Object, whose storage
+      Cloudflare encrypts at rest. Requests use HTTPS. Cloudflare Access protects the entire service
+      hostname, and the Worker independently verifies the signed assertion, application audience,
+      and exact owner email. Authentication headers are removed before MCP processing, and
+      responses are marked <code>Cache-Control: no-store</code>.
+    </p>
+
+    <p>
+      The application does not intentionally log request or response bodies, financial data, tool
+      arguments, tool results, OAuth codes, cookies, or tokens. Cloudflare may retain platform and
+      Access security metadata according to the Cloudflare account's settings and policies.
+    </p>
+
+    <p>
+      No system can guarantee absolute security, but the Service uses these controls to limit access
+      and reduce the amount and lifetime of retained data.
+    </p>
+
+    <h2>Retention</h2>
+
+    <ul>
+      <li>
+        Financial API responses remain in server memory only long enough to complete the requested
+        tool call. Any copy retained by the selected MCP or AI client is governed by that provider.
+      </li>
+      <li>
+        The active YNAB OAuth credential remains until it is replaced, permanently disconnected, or
+        invalidated by a rejected refresh.
+      </li>
+      <li>
+        Temporary OAuth state is valid for no more than 10 minutes. Its single stored record is
+        replaced by a new attempt and is deleted during completion, expiry handling, or permanent
+        disconnect.
+      </li>
+      <li>
+        Cloudflare identity and security metadata follows the retention configured for the
+        Cloudflare account and Cloudflare service.
+      </li>
+    </ul>
+
+    <h2>Deletion and disconnection</h2>
+
+    <p>The owner can delete credential data without contacting anyone:</p>
+
+    <ol>
+      <li>Sign in through Cloudflare Access and open the Service's connection page.</li>
+      <li>
+        Select <strong>Permanently disconnect</strong>. The same-origin protected action deletes the
+        active credential, pending authorization state, and legacy credential-object state.
+      </li>
+      <li>Revoke the application's grant in YNAB to invalidate access and refresh tokens upstream.</li>
+      <li>
+        Remove the MCP integration and use the selected client provider's controls to delete any
+        chats, tool results, or other copies retained by that provider.
+      </li>
+    </ol>
+
+    <p>
+      After disconnection, the Service cannot access YNAB data unless the owner completes a new
+      read-only authorization.
+    </p>
+
+    <h2>Children</h2>
+
+    <p>The Service is private, is not offered to the public, and is not directed to children under 13.</p>
+
+    <h2>Changes to this policy</h2>
+
+    <p>
+      This policy will be updated before the Service accesses a new category of YNAB data or uses or
+      shares data for a new purpose. If a change materially affects YNAB data practices, the Service
+      will prompt the user to consent before further access. The date at the top will identify the
+      latest revision.
+    </p>
+
+    <h2>YNAB attribution</h2>
+
+    <p>
+      We are not affiliated, associated, or in any way officially connected with YNAB or any of its
+      subsidiaries or affiliates. The official YNAB website can be found at
+      <a href="https://www.ynab.com">https://www.ynab.com</a>.
+    </p>
+
+    <p>
+      The names YNAB and You Need A Budget, as well as related names, tradenames, marks, trademarks,
+      emblems, and images are registered trademarks of YNAB.
+    </p>
+  </article>
+</Layout>
