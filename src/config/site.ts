@@ -39,3 +39,10 @@ export const roles = [
     period: 'Summer 2021',
   },
 ];
+
+export const education = {
+  school: 'UIUC',
+  degree: 'B.S. in Physics',
+  period: 'Class of 2023',
+  graduationYear: '2023',
+};

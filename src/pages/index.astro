@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import SectionContent from '../components/SectionContent.astro';
-import { contactLinks, roles, site } from '../config/site';
+import { contactLinks, education, roles, site } from '../config/site';
 ---
 
 <Layout
@@ -11,15 +10,15 @@ import { contactLinks, roles, site } from '../config/site';
 >
   <PageHeader title={site.name} links={contactLinks} />
 
-  <SectionContent title="Experience">
-    <div class="grid gap-0">
+  <div class="mt-12 grid gap-12">
+    <div class="grid gap-7">
       {
         roles.map((role) => (
-          <article class="mb-7 grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-gutter last:mb-0 max-md:mb-6 max-md:grid-cols-1 max-md:gap-[0.4rem]">
+          <article class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-gutter max-md:grid-cols-1 max-md:gap-[0.4rem]">
             <div>
-              <h3 class="mb-1 font-body text-[21px] leading-[1.4] font-semibold tracking-normal text-text max-md:text-[20px]">
+              <h2 class="mb-[4px] font-body text-[21px] leading-[1.4] font-semibold tracking-normal text-text max-md:text-[20px]">
                 {role.company}
-              </h3>
+              </h2>
               <time class="hidden font-body text-[16px] leading-[1.6] font-normal text-text-soft max-md:block">
                 {role.period}
               </time>
@@ -32,5 +31,20 @@ import { contactLinks, roles, site } from '../config/site';
         ))
       }
     </div>
-  </SectionContent>
+
+    <article class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-gutter max-md:grid-cols-1 max-md:gap-[0.4rem]">
+      <div>
+        <h2 class="mb-[4px] font-body text-[21px] leading-[1.4] font-semibold tracking-normal text-text max-md:text-[20px]">
+          {education.school}
+        </h2>
+        <time datetime={education.graduationYear} class="hidden font-body text-[16px] leading-[1.6] font-normal text-text-soft max-md:block">
+          {education.period}
+        </time>
+        <p class="font-prose text-[18px] leading-[1.7] text-text-muted">{education.degree}</p>
+      </div>
+      <time datetime={education.graduationYear} class="whitespace-nowrap font-body text-[16px] leading-[1.6] font-normal text-text-soft max-md:hidden">
+        {education.period}
+      </time>
+    </article>
+  </div>
 </Layout>
